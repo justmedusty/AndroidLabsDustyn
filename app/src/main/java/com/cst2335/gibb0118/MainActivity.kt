@@ -10,10 +10,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_grid)
+        setContentView(R.layout.activity_main_relative)
 
-        val button = findViewById<Button>(R.id.button4)
-        val switch = findViewById<Switch>(R.id.switch2)
+        val button = findViewById<Button>(R.id.button2)
+        val switch = findViewById<Switch>(R.id.switch3)
 
         button.setOnClickListener {
             Toast.makeText(
