@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="fill"
+            android:layout_columnSpan="2"
+>
+
+
+    <TextView
+            android:text="@string/TopText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textView3"
+            android:textSize="30dp"/>
+    <Button
+            android:text="@string/button"
+            android:layout_width="243dp"
+            android:layout_height="wrap_content" android:id="@+id/button4" android:layout_row="1"
+            android:layout_column="0"/>
+    <CheckBox
+            android:text="@string/checkbox"
+            android:layout_width="201dp"
+            android:layout_height="wrap_content" android:id="@+id/checkBox3"
+            android:layout_column="1" android:layout_row="1"/>
+    <ImageButton
+            android:layout_width="244dp"
+            android:layout_height="wrap_content" app:srcCompat="@drawable/flag" android:id="@+id/imageButton2"
+            android:layout_row="3" android:layout_column="0"/>
+    <Switch
+            android:text="@string/Switchbox"
+            android:layout_width="205dp"
+            android:layout_height="43dp" android:id="@+id/switch2" android:layout_row="3"
+            android:layout_column="1"/>
+    <EditText
+            android:layout_width="241dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="@string/editText"
+            android:ems="10"
+            android:id="@+id/editTextTextPersonName2" android:layout_row="4" android:layout_column="0"/>
+
+
+</GridLayout>

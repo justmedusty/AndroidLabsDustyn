@@ -2,10 +2,40 @@ package com.cst2335.gibb0118
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.*
+import androidx.core.view.accessibility.AccessibilityEventCompat.setAction
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main_linear)
+
+        val button = findViewById<Button>(R.id.button3)
+        val switch = findViewById<Switch>(R.id.switch1)
+
+        button.setOnClickListener {
+            Toast.makeText(
+                applicationContext,
+                resources.getString(R.string.moreInfoToast),
+                Toast.LENGTH_LONG
+            ).show()
+        }
+
+        switch.setOnCheckedChangeListener { compoundButton, b ->
+            if (b){
+                Snackbar.make(compoundButton,resources.getString(R.string.SnackbarOn),Snackbar.LENGTH_LONG).show()
+            }
+            else if (!b){
+                Snackbar.make(compoundButton,resources.getString(R.string.SnackBarOff),Snackbar.LENGTH_LONG).show()
+            }
+        }
+
+
     }
+
+
 }
+
+

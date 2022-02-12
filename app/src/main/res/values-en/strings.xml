@@ -1,12 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AndroidLabsDustyn</string>
-    <string name="hello_message">Hello World</string>
-    <string name="button">Click here</string>
     <string name="checkbox">Check this out!</string>
+    <string name="button">Click Here</string>
     <string name="Switchbox">Switch on / off</string>
     <string name="TopText">Look at my GUI</string>
-    <string name="editText">Type here</string>
+    <string name="hello_message">Hello World</string>
+    <string name="app_name">Android Labs</string>
+    <string name="editText">Type Here</string>
     <string name="moreInfoToast">Here is more info</string>
-    <string name="SnackbarOn">The switch is now on</string>
+    <string name="SnackbarOn">the switch is now on</string>
     <string name="SnackBarOff">The switch is now off</string>
 </resources>

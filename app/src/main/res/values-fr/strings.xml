@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="checkbox">Regarde ça!</string>
+    <string name="button">Cliquez ici</string>
+    <string name="Switchbox">Changer Allumé / éteint</string>
+    <string name="TopText">Regarde Mon GUI</string>
+    <string name="hello_message">Bonjour le monde</string>
+    <string name="app_name">Laboratoires Android</string>
+    <string name="editText">Écrivez ici</string>
+    <string name="moreInfoToast">voici plus d\'infos</string>
+    <string name="SnackbarOn">L\'interrupteur est maintenant allumé</string>
+    <string name="SnackBarOff">L\'interrupteur est maintenant éteint</string>
+</resources>
