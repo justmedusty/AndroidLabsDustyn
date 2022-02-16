@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_grid)
 
-        val button = findViewById<Button>(R.id.button4)
+        val button = findViewById<Button>(R.id.button2)
         val switch = findViewById<Switch>(R.id.switch2)
 
         button.setOnClickListener {
@@ -25,7 +25,9 @@ class MainActivity : AppCompatActivity() {
 
         switch.setOnCheckedChangeListener { compoundButton, b ->
             if (b){
-                Snackbar.make(compoundButton,resources.getString(R.string.SnackbarOn),Snackbar.LENGTH_LONG).setAction("Undo", )
+                Snackbar.make(compoundButton,resources.getString(R.string.SnackbarOn),Snackbar.LENGTH_LONG).setAction("Undo") { _ ->
+                    switch.isChecked = false
+                }.show()
             }
 
         }
