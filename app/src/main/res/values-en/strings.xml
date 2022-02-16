@@ -10,4 +10,12 @@
     <string name="moreInfoToast">Here is more info</string>
     <string name="SnackbarOn">the switch is now on</string>
     <string name="SnackBarOff">The switch is now off</string>
+    <string name="emailPrompt">Enter your email address:</string>
+    <string name="typeEmail">Type Email here</string>
+    <string name="password">Type your password:</string>
+    <string name="loginButton">Login</string>
+    <string name="profile">Your Profile</string>
+    <string name="namePrompt">Enter your name</string>
+    <string name="picturePrompt">Your picture:</string>
+    <string name="pictureHeader">Click the button above to take a picture</string>
 </resources>

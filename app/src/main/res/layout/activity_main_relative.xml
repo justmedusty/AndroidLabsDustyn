@@ -14,7 +14,9 @@
             android:text="@string/TopText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView2"/>
+            android:id="@+id/textView2"
+            android:textSize="30dp"/>
+
     <Button
             android:text="@string/button"
             android:layout_alignParentStart="true"

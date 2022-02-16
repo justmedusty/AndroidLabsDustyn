@@ -10,4 +10,12 @@
     <string name="moreInfoToast">voici plus d\'infos</string>
     <string name="SnackbarOn">L\'interrupteur est maintenant allumé</string>
     <string name="SnackBarOff">L\'interrupteur est maintenant éteint</string>
+    <string name="emailPrompt">Entrez votre adresse email:</string>
+    <string name="typeEmail">Tapez l\'e-mail ici</string>
+    <string name="password">Saisissez votre mot de passe :</string>
+    <string name="loginButton">Connexion</string>
+    <string name="profile">"Votre profil "</string>
+    <string name="namePrompt">Entrez votre nom</string>
+    <string name="picturePrompt">Ta photo:</string>
+    <string name="pictureHeader">Cliquez sur le bouton ci-dessus pour prendre une photo</string>
 </resources>
