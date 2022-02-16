@@ -25,11 +25,9 @@ class MainActivity : AppCompatActivity() {
 
         switch.setOnCheckedChangeListener { compoundButton, b ->
             if (b){
-                Snackbar.make(compoundButton,resources.getString(R.string.SnackbarOn),Snackbar.LENGTH_LONG).show()
+                Snackbar.make(compoundButton,resources.getString(R.string.SnackbarOn),Snackbar.LENGTH_LONG).setAction("Undo", )
             }
-            else if (!b){
-                Snackbar.make(compoundButton,resources.getString(R.string.SnackBarOff),Snackbar.LENGTH_LONG).show()
-            }
+
         }
 
 
