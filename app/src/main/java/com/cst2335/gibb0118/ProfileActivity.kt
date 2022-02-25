@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import androidx.activity.result.ActivityResult
@@ -26,11 +27,18 @@ class ProfileActivity : AppCompatActivity() {
         setContentView(R.layout.activity_profile)
 
         val imageButton = findViewById<ImageButton>(R.id.imageButton4)
+        val chatButton = findViewById<Button>(R.id.button6)
         updateEmail()
 
         imageButton.setOnClickListener {
             dispatchTakePictureIntent()
         }
+
+        chatButton.setOnClickListener {
+            nextActivity()
+        }
+
+
     }
 
     override fun onPause() {
@@ -89,4 +97,13 @@ class ProfileActivity : AppCompatActivity() {
         fromMain.getStringExtra("EMAIL")
         email.setText(sharedPreferences.getString("EMAIL", "EMAIL"))
     }
+    private fun nextActivity() {
+        val nextPage = Intent(this, ChatActivity::class.java)
+        //nextPage.putExtra("EMAIL","EMAIL")
+
+        startActivity(nextPage)
+
+    }
+
+
 }

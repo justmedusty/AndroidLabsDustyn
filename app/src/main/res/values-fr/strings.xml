@@ -18,4 +18,7 @@
     <string name="namePrompt">Entrez votre nom</string>
     <string name="picturePrompt">Ta photo:</string>
     <string name="pictureHeader">Cliquez sur le bouton ci-dessus pour prendre une photo</string>
+    <string name="go_to_chat">Go to chat</string>
+    <string name="send">Send</string>
+    <string name="receive">Recieve</string>
 </resources>
