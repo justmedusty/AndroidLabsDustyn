@@ -1,5 +1,9 @@
 package com.cst2335.gibb0118
 
+import android.content.ContentValues
+import android.content.Context
+import android.database.Cursor
+import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -8,7 +12,7 @@ import android.widget.ListView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 
-class ChatActivity : AppCompatActivity() {
+abstract class ChatActivity : AppCompatActivity() {
 
     private val TAG: String = "ChatActivity"
     private lateinit var sendButton: Button
@@ -22,6 +26,10 @@ class ChatActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.chatroom_acitivty)
 
+        val chatDB : SQLiteDatabase
+        val context : Context = applicationContext
+
+
         sendButton = findViewById(R.id.send)
         receiveButton = findViewById(R.id.receive)
         editText = findViewById(R.id.msg)
@@ -30,8 +38,18 @@ class ChatActivity : AppCompatActivity() {
         listView.adapter = chatListAdapter
 
 
+        val chatDbHelper : Database = Database(context)
+        chatDB =  chatDbHelper.writableDatabase
+        val cValues : ContentValues = ContentValues()
+
+        val cursor : Cursor = chatDB.query(Database.TABLE_NAME, )
+
+
+
         sendButton.setOnClickListener {
+
             sendChatMessage(true)
+            println(editText)
         }
         receiveButton.setOnClickListener {
             sendChatMessage(false)
@@ -59,12 +77,12 @@ class ChatActivity : AppCompatActivity() {
     }
 
     private fun sendChatMessage(isSent: Boolean) {
+      if (editText.text.isNullOrBlank()){
+          return
+      }
 
         chatListAdapter.apply {
 
-            if (editText.equals("")) {
-                return
-            }
 
             val chatMessage = ChatMessage(editText.text.toString(), isSent)
             editText.setText("")
