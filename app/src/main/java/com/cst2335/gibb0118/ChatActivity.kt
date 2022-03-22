@@ -1,18 +1,19 @@
 package com.cst2335.gibb0118
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
-import android.view.View
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ListView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 
-abstract class ChatActivity : AppCompatActivity() {
+class ChatActivity : AppCompatActivity() {
 
     private val TAG: String = "ChatActivity"
     private lateinit var sendButton: Button
@@ -21,13 +22,21 @@ abstract class ChatActivity : AppCompatActivity() {
     private lateinit var chatListAdapter: ChatListAdapter
     private lateinit var listView: ListView
 
+    private val contentValues: ContentValues = ContentValues()
+    private var chatDB: SQLiteDatabase = SQLiteDatabase.create(null)
 
+
+
+    @SuppressLint("Range")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.chatroom_acitivty)
 
-        val chatDB : SQLiteDatabase
-        val context : Context = applicationContext
+
+        val context: Context = applicationContext
+
+
+
 
 
         sendButton = findViewById(R.id.send)
@@ -38,11 +47,40 @@ abstract class ChatActivity : AppCompatActivity() {
         listView.adapter = chatListAdapter
 
 
-        val chatDbHelper : Database = Database(context)
-        chatDB =  chatDbHelper.writableDatabase
-        val cValues : ContentValues = ContentValues()
+        val chatDbHelper = Database(context)
+        chatDB = chatDbHelper.writableDatabase
 
-        val cursor : Cursor = chatDB.query(Database.TABLE_NAME, )
+       val cursor : Cursor = chatDB.query(
+            Database.TABLE_NAME,
+            arrayOf(Database.KEY_MESSAGE,Database.IS_SENT),
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        )
+
+
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast) {
+                if (cursor.getColumnIndex(Database.KEY_MESSAGE) < 0){
+                    cursor.moveToFirst()
+                }
+                val message: String =  cursor.getString(cursor.getColumnIndexOrThrow(Database.KEY_MESSAGE))
+                val sent: Boolean = cursor.getInt(cursor.getColumnIndex(Database.IS_SENT)) > 0
+                chatListAdapter.dataSource.add(ChatMessage(message, sent))
+                cursor.moveToNext()
+            }
+            cursor.close()
+        }
+
+
+
+        Log.i(TAG, "Cursor's column count=" + cursor.columnCount)
+        for (i in 0 until cursor.columnCount) {
+            Log.i(TAG, cursor.getColumnName(i))
+        }
 
 
 
@@ -76,22 +114,30 @@ abstract class ChatActivity : AppCompatActivity() {
 
     }
 
+
+
     private fun sendChatMessage(isSent: Boolean) {
-      if (editText.text.isNullOrBlank()){
-          return
-      }
+        if (editText.text.isNullOrBlank()) {
+            return
+        }
 
         chatListAdapter.apply {
-
+            var isSentInt = 0
+            if (isSent) {
+                isSentInt = 1
+            }
 
             val chatMessage = ChatMessage(editText.text.toString(), isSent)
             editText.setText("")
             dataSource.add(chatMessage)
+            contentValues.put(Database.KEY_MESSAGE, chatMessage.text)
+            contentValues.put(Database.IS_SENT, isSentInt)
+            chatDB.insert(Database.TABLE_NAME, null, contentValues)
             chatListAdapter.notifyDataSetChanged()
-
 
         }
 
     }
+
 
 }

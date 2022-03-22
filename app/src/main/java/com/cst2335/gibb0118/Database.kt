@@ -15,11 +15,12 @@ class Database(val context: Context?, dbName: String, dbVersion: Int) :
 
     companion object {
         const val ACTIVITY_NAME = "Database"
-        const val DATABASE_NAME = "ChatDatabase"
+        const val DATABASE_NAME = "test"
         const val TABLE_NAME = "ChatTable"
         const val KEY_ID = "id"
         const val KEY_MESSAGE = "message"
         const val VERSION = 1
+        const val IS_SENT = "isSent"
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
@@ -28,7 +29,7 @@ class Database(val context: Context?, dbName: String, dbVersion: Int) :
         db?.execSQL(
             " CREATE TABLE " + TABLE_NAME + " (" +
                     KEY_ID + " INTEGER PRIMARY KEY, " +
-                    KEY_MESSAGE + " TEXT)"
+                    KEY_MESSAGE + " TEXT, " + IS_SENT + " INTEGER)"
         )
 
         Log.i(ACTIVITY_NAME, "Calling onCreate")
